@@ -1,49 +1,30 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>market - register</title>
-    <link rel = "icon" type="image/png" href = "icons/carrito-de-compras.png">
-</head>
-<body>
-    <center><h1>Register</h1></center>
-    <table align="center">
-        <tr><td><label>Firstname:</label></td></tr>
-        <tr><td><label><input type="text"></label></td></tr>
-        <tr><td><label><label>lastname:</label></label></td></tr>
-        <tr><td><label><input type="text"></label></td></tr>
-        <tr><td><label><label>mobile number:</label></label></td></tr>
-        <tr><td><label><input type="text"></label></td></tr>
-        <tr><td><label><label>identification number:</label></label></td></tr>
-        <tr><td><label><input type="text"></label></td></tr>
-        <tr><td><label> <label>email:</label></label></td></tr>
-        <tr><td><label><input type="email"></label></td></tr>
-        <tr><td><label></label><label>password:</label></td></tr>
-        <tr><td><label> <input type="password"></label></td></tr>
-        <tr><td><label> <button>register</button></label></td></tr>
-    </table>
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>market - register</title>
+        <link rel = "icon" type="image/png" href = "icons/carrito-de-compras.png">
+    </head>
+    <body>
+        <center><h1>Register</h1></center>
 
-    
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-    
-</body>
+        <form name="register-form" action="signup.php" method="post">
+            <table border ="0" align="center">
+                <tr><td><label>Firstname:</label></td></tr>
+                <tr><td><input type="text" name="fname" required></td></tr>
+                <tr><td><label>lastname:</label></td></tr>
+                <tr><td><input type="text" name="lname" required></td></tr>
+                <tr><td><label>mobile number:</label></td></tr>
+                <tr><td><input type="text" name="mnumber" required></td></tr>
+                <tr><td><label>identification number:</label></td></tr>
+                <tr><td><input type="text" name="idnumber" required></td></tr>
+                <tr><td><label>email:</label></td></tr>
+                <tr><td><input type="email" name="email" required></td></tr>
+                <tr><td><label>password:</label></td></tr>
+                <tr><td><input type="password" name="passwd" required></td></tr>
+                <tr><td><button>register</button></td></tr>
+            </table>
+        </form>
+    </body>
 </html>
