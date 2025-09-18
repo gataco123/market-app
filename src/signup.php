@@ -21,6 +21,8 @@
             email = '$e_mail' or ide_number = '$id_number'
         limit 1
     "
+
+    
     $res_check = pg_query($conn,$check_email) ;
     if(pg_num_rows($res_check)>0){
         echo "<script>alert('users already exists !!')</scripts>";+
