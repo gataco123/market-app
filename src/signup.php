@@ -1,34 +1,33 @@
 <?php
-    //Step 1 get database access
-    require('../config/database.php');
-    //Step 2 get form-data
+// Step 1: Get database access
+require('../config/database.php');
 
-    $f_name    = $_POST['fname']; //los campos dentro de los corchetes 
-    $l_name    = $_POST['lname']; //deber ser igual al de el $
-    $m_number  = $_POST['mnumber'];
-    $id_number = $_POST['idnumber'];
-    $e_mail    = $_POST['email'];
-    $p_wd      = $_POST['passwd'];
+// Step 2: Get form-data
+$f_name    = $_POST['fname'];
+$l_name    = $_POST['lname'];
+$m_number  = $_POST['mnumber'];
+$id_number = $_POST['idnumber'];
+$e_mail    = $_POST['email'];
+$p_wd      = $_POST['passwd'];
 
-    $enc_pass = password_hash($p_wd, PASSWORD_DEFAULT);
+//$enc_pass = password_hash($p_wd, PASSWORD_DEFAULT);
+$enc_pass = md5($p_wd);
 
-    $check_email = "
-        select
-            u.email
-        from
-            users u
-        where
-            email = '$e_mail' or ide_number = '$id_number'
-        limit 1
-    "
+// Step 3: Check if user already exists
+$check_email = "
+    SELECT email FROM users 
+    WHERE email = '$e_mail' OR ide_number = '$id_number'
+    LIMIT 1;
+";
 
-    
-    $res_check = pg_query($conn,$check_email) ;
-    if(pg_num_rows($res_check)>0){
-        echo "<script>alert('users already exists !!')</scripts>";+
-        header('refresh:0;url=signin.html');
-    }else {
-         //Step 3 create query to insert into
+$res_check = pg_query($conn, $check_email);
+
+if (pg_num_rows($res_check) > 0) {
+    echo "<script>alert('User already exists!');</script>";
+    header('refresh:0;url=signin.html');
+    exit();
+} else {
+    // Step 4: Insert user
     $query = "
         INSERT INTO users (
             firstname,
@@ -37,32 +36,25 @@
             ide_number,
             email,
             password
-        )
-        Values(
+        ) VALUES (
             '$f_name',
             '$l_name',
             '$m_number',
             '$id_number',
             '$e_mail',
             '$enc_pass'
-        )"
-    ;
+        );
+    ";
 
-    //Step 4  execute query
-    $res = pg_query($conn,$query);
-            //step 5. validate result
-    if($res){
-       // echo "user has been created succesfully !!!";
-       echo "<script>alert('Success !!! Go to login'</scripts>";+
-       header('refresh:0;url=signin.html');
-    }else{
-        echo "something wrong!";
+    $res = pg_query($conn, $query);
+
+    // Step 5: Validate result
+    if ($res) {
+        echo "<script>alert('Success! Go to login');</script>";
+        header('refresh:0;url=signin.html');
+        exit();
+    } else {
+        echo "Something went wrong!";
     }
-
-    }
-
-   
-
-    
-
+}
 ?>
