@@ -2,7 +2,7 @@
     //data base connection
     $host     = "127.0.0.1"; //local host
     $user     = "postgres";
-    $dbname   = "marketapp";
+    $dbname   = "marketapp";   
     $password = "unicesmag";
     $port     = "5432";
     
