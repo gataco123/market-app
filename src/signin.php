@@ -11,7 +11,7 @@
 
     $sql_check_user = "SELECT u.email, u.password FROM users u WHERE u.email = '$e_mail' AND u.password = '$enc_pass' LIMIT 1";
 
-    $res_check = pg_query($conn, $sql_check_user);
+    $res_check = pg_query($conn_supa, $sql_check_user);
 
     if(pg_num_rows($res_check) > 0){
         //echo "User exists, go to main page!";
