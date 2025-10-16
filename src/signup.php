@@ -6,6 +6,9 @@ require('../config/database.php');
 $f_name    = trim($_POST['fname']);
 $l_name    = trim($_POST['lname']);
 $m_number  = trim($_POST['mnumber']);
+
+
+
 $id_number = trim($_POST['idnumber']);
 $e_mail    = trim($_POST['email']);
 $p_wd      = trim($_POST['passwd']);
