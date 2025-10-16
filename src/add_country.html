@@ -1,24 +1,29 @@
 <!DOCTYPE html>
-<html lang="en">
-    <head>
-        <meta charset="UTF-8">
-        <meta name="viewport" content="width=device-width, initial-scale=1.0">
-        <title>market - country</title>
-        <link rel = "icon" type="image/png" href = "icons/carrito-de-compras.png">
-    </head>
-    <body>
-        <center><h1>Countries</h1></center>
-
-        <form name="register-form" action="signup.php" method="post">
-            <table border ="0" align="center">
-                <tr><td><label>Name:</label></td></tr>
-                <tr><td><input type="text" name="Contname" required></td></tr>
-                <tr><td><label>Abrev:</label></td></tr>
-                <tr><td><input type="text" name="Abrev" required></td></tr>
-                <tr><td><label>Code:</label></td></tr>
-                <tr><td><input type="text" name="mnumber" required></td></tr>
-                <tr><td><button>Create</button></td></tr>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Registrar País</title>
+</head>
+<body>
+    <center>
+        <h2>Registrar nuevo país</h2>
+        <form name="country-form" action="add_country.php" method="post">
+            <table border="0">
+                <tr>
+                    <td><input type="text" name="name" id="name"placeholder="Nombre del país" required></td>
+                </tr>
+                <tr>
+                    <td><input type="text" name="abbrev"id="abbrev" placeholder="Abreviatura (ej: COL)"></td>
+                </tr>
+                <tr>
+                    <td><input type="text" name="code" id="code" placeholder="Código (ej: 57)"></td>
+                </tr>
+                <tr>
+                    <td align="center"><button>Guardar</button></td>
+                </tr>
             </table>
         </form>
-    </body>
+    </center>
+</body>
 </html>
