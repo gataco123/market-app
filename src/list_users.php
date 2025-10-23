@@ -19,19 +19,42 @@ require('../config/database.php')
             <th>status</th>
             <th>options</th>
         </tr>
-    </table>
+        <?php 
+            $sql_users = 
+            "select 
+	            u.firstname ||' '|| u.lastname as fullname,
+	            u.email,
+	            u.ide_number,
+	            u.mobile_number,
+	            case when u.status = true then 'Active' else 'Inactive'
+	            end as status
+            from users u";
 
-    <table border="1" align = "center">
-        <td>Joe Doe</td>
-        <td>Joe@mail.com</td>
-        <td>10856545</td>
-        <td>3000233045</td>
-        <td>Active</td>
-        <td>
-            <a haref ="#">
-                <img src = "icons/search.png" width="20">
-            </a>
-        </td>
-    </table>
+            $result =pg_query($conn_local, $sql_users);
+            if(!$result){
+                die("error". pg_last_error());
+            }
+
+            while ($row = pg_fetch_assoc($result)){
+                echo "<tr>
+                        <td> ".$row['fullname']."</td>
+                        <td>".$row['email']."</td>
+                        <td>Joe@mail.com</td>
+                        <td>10856545</td>
+                        <td>3000233045</td>
+                        <td>Active</td>
+                        <td>
+                        <a haref ='#'>
+                            <img src = 'icons/search.png' width='20'>
+                        </a>
+                        </td>
+                        </tr>";
+
+            }
+        ?>
+
+
+        </table>
+        
 </body>
 </html>

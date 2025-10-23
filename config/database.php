@@ -38,5 +38,11 @@ if(!$conn_supa){
 }else{
     echo"Connection sucessfuly :::";
 }
+if(!$conn_local){
+    echo"Error";
+}else{
+    echo"Connection sucessfuly :::";
+}
+
 
 ?>
