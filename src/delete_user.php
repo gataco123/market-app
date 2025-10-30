@@ -2,7 +2,7 @@
     require('../config/database.php');
     $user_id =$_GET['userId'];
     $sql_delete_user = "delete from users where id =  $user_id";
-    $result =pg_query($conn_local, $sql_delete_user);
+    $result =pg_query($conn_supa, $sql_delete_user);
     if(!$result){
         die("error". pg_last_error());
     }else{

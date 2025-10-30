@@ -1,5 +1,5 @@
 <?php
-require('../config/database.php')
+    require('../config/database.php');
 ?>
 
 <!DOCTYPE html>
@@ -33,7 +33,7 @@ require('../config/database.php')
 	            end as status
             from users u";
 
-            $result =pg_query($conn_local, $sql_users);
+            $result =pg_query($conn_supa, $sql_users);
             if(!$result){
                 die("error". pg_last_error());
             }
@@ -49,12 +49,11 @@ require('../config/database.php')
                         <td>
                         <a haref ='#'>
                             <img src = 'icons/search.png' width='20'>
-                        </a>
-                         <a haref ='#'>
+                        </a>                        
+                            <a href='edit_user_form.php?userId=".$row['user_id']."'>
                             <img src = 'icons/editar-texto.png' width='20'>
                         </a>
-                         <a href='delete_user.php?userId=".$row['user_id']."'>
-                         
+                            <a href='delete_user.php?userId=".$row['user_id']."'>
                             <img src = 'icons/borrar.png' width='20'>
                         </a>
                         </td>
