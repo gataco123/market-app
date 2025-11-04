@@ -1,6 +1,11 @@
 <?php
-echo "Welcome to main !!!";
+    session_start();
+
+    if(isset($_SESSION['session_user_id'])){
+        header('refresh:0;url=signin.html');
+    }
 ?>
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -10,6 +15,8 @@ echo "Welcome to main !!!";
     <title>Marketapp - Home</title>
 </head>
 <body>
-    
+    <center><b>User:</b>Here print yur name </center>
+    <a href = "list_users.php">List all users</a> |
+    <a href = "logout.php" >logout</a>
 </body>
 </html>

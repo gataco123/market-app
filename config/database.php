@@ -36,12 +36,12 @@ $conn_local = pg_connect($local_data_connection);
 if(!$conn_supa){
     echo"Error";
 }else{
-    echo"Connection sucessfuly :::";
+    echo"Connection supa sucessfuly :::";
 }
 if(!$conn_local){
     echo"Error";
 }else{
-    echo"Connection sucessfuly :::";
+    echo"Connection local sucessfuly :::";
 }
 
 
