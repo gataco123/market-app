@@ -76,7 +76,10 @@ if (!$result)
             name ="lastname" 
             value = "<?php echo $lname?>"
             required /><br><br>
-            <button>Update user</button>
+
+        <label>User photo</label><input type = "file" name = "photo_user">
+        <br><br>
+        <button>Update user</button>
     </form>
     </center>
 </body>

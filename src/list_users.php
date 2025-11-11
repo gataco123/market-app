@@ -1,10 +1,11 @@
 <?php
     require('../config/database.php');
-    session_start();
+    /*session_start();
 
     if(!isset($_SESSION['session_user_id'])){
         header('refresh:0;url=error_403.html');
     }
+        */
 ?>
 
 <!DOCTYPE html>
@@ -24,6 +25,7 @@
             <th>Ide number</th>
             <th>phone number</th>
             <th>status</th>
+            <th>photo</th>
             <th>options</th>
         </tr>
         <?php 
@@ -35,8 +37,11 @@
 	            u.ide_number,
 	            u.mobile_number,
 	            case when u.status = true then 'Active' else 'Inactive'
-	            end as status
-            from users u";
+	            end as status,
+                u.url_photo
+            from users 
+                u"
+            ;
 
             $result =pg_query($conn_supa, $sql_users);
             if(!$result){
@@ -49,7 +54,9 @@
                         <td>".$row['email']."</td>
                         <td>".$row['ide_number']."</td>
                         <td>".$row['mobile_number']."</td>
+                        
                         <td>".$row['status']."</td>
+                        <td><img src =".$row['url_photo']." width='30'></td>
                         
                         <td>
                         <a haref ='#'>
